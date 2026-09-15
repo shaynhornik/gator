@@ -47,7 +47,7 @@ func handlerAddFeed(s *state, cmd command, user database.User) error {
 func handlerListFeeds(s *state, cmd command) error {
 	feeds, err := s.db.GetFeeds(context.Background())
 	if err != nil {
-		return fmt.Errorf("couldn't get feeds: &w", err)
+		return fmt.Errorf("couldn't get feeds: %w", err)
 	}
 
 	for _, feed := range feeds {
